@@ -8,15 +8,29 @@ use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Hash;
 
+use App\Http\Requests\ParamPaginateRequest;
+
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(ParamPaginateRequest $request)
     {
-        $users = User::all();
-        return response()->json(UserResource::collection($users));
+        $size = $request->query('size', 10);
+        $search = $request->query('q');
+        $sort = $request->query('sort', 'desc');
+
+        $users = User::query()
+            ->when($search, function ($query, $search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('username', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+            })
+            ->orderBy('id', $sort === 'asc' ? 'asc' : 'desc')
+            ->paginate($size);
+
+        return $this->paginateResponse(UserResource::collection($users));
     }
 
     /**
@@ -29,7 +43,7 @@ class UserController extends Controller
 
         $user = User::create($validated);
 
-        return response()->json(new UserResource($user), 201);
+        return $this->successResponse(new UserResource($user), "User created successfully", 201);
     }
 
     /**
@@ -37,7 +51,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return new UserResource($user);
+        return $this->successResponse(new UserResource($user), "User fetched successfully");
     }
 
     /**
@@ -53,7 +67,7 @@ class UserController extends Controller
 
         $user->update($validated);
 
-        return new UserResource($user);
+        return $this->successResponse(new UserResource($user), "User updated successfully");
     }
 
     /**
