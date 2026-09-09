@@ -90,17 +90,31 @@ return [
             ],
             'khmerosmuol' => [
                 'R' => 'KhmerOSmuol.ttf',
-                'B' => 'KhmerOSmuol-Bold.ttf',
-                'useOTL' => 0xFF,
-            ],
-            'khmerossar' => [
-                'R' => 'KhmerOSsar.ttf',
-                'B' => 'KhmerOSsar-Bold.ttf',
+                'B' => 'KhmerOSmuol.ttf',
                 'useOTL' => 0xFF,
             ],
             'khmerosmoullight' => [
-                'R' => 'KhmerOSMoulLight.ttf',
-                'B' => 'KhmerOSMoulLight-Bold.ttf',
+                'R' => 'KhmerOS_muollight.ttf',
+                'B' => 'KhmerOS_muollight.ttf',
+                'useOTL' => 0xFF,
+            ],
+            'khmeros_muollight' => [
+                'R' => 'KhmerOS_muollight.ttf',
+                'B' => 'KhmerOS_muollight.ttf',
+                'useOTL' => 0xFF,
+            ],
+            'khmerossiemreap' => [
+                'R' => 'KhmerOS_siemreap.ttf',
+                'B' => 'KhmerOS_siemreap.ttf',
+                'useOTL' => 0xFF,
+            ],
+            'khmeros_siemreap' => [
+                'R' => 'KhmerOS_siemreap.ttf',
+                'B' => 'KhmerOS_siemreap.ttf',
+                'useOTL' => 0xFF,
+            ],
+            'tacteing' => [
+                'R' => 'Tacteing.TTF',
                 'useOTL' => 0xFF,
             ],
         ],
