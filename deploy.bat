@@ -1,0 +1,3 @@
+@echo off
+echo Running Laravel deployment in Docker...
+docker compose exec web bash deploy.sh %*

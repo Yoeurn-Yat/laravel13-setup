@@ -57,23 +57,33 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-<!-- Docker Deploment Commands -->
+<!-- Docker Deployment Commands -->
 
-1. Build and run the container
-   docker compose up -d --build
+### 1. Build and run containers
+```bash
+docker compose up -d --build
+```
 
-2. Stop the container
-   docker compose down
+### 2. Deploy updates (Runs permissions, composer, cache clear, passport keys, migrations)
+- **From Git Bash / Linux / Mac:**
+  ```bash
+  ./deploy.sh
+  ```
+- **From Windows CMD / PowerShell:**
+  ```cmd
+  .\deploy.bat
+  ```
+- **Directly via Docker Compose:**
+  ```bash
+  docker compose exec web bash deploy.sh
+  ```
 
-3. Access the container
-   docker exec -it laravel13-setup-web-1 bash
-4. Install laravel dependencies
-   composer install
-5. Run artisan commands
-   php artisan migrate
-   php artisan db:seed
-   php artisan serve --host=[IP_ADDRESS] --port=8888
-   php artisan route:list
-   php artisan config:clear
-6. Reset Laravel project
-   docker compose down && docker compose up -d --build && docker exec -it laravel13-setup-web-1 bash && composer install
+### 3. Access container shell
+```bash
+docker compose exec -it web bash
+```
+
+### 4. Stop containers
+```bash
+docker compose down
+```
