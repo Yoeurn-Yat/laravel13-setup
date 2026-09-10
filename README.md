@@ -56,3 +56,24 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<!-- Docker Deploment Commands -->
+
+1. Build and run the container
+   docker compose up -d --build
+
+2. Stop the container
+   docker compose down
+
+3. Access the container
+   docker exec -it laravel13-setup-web-1 bash
+4. Install laravel dependencies
+   composer install
+5. Run artisan commands
+   php artisan migrate
+   php artisan db:seed
+   php artisan serve --host=[IP_ADDRESS] --port=8888
+   php artisan route:list
+   php artisan config:clear
+6. Reset Laravel project
+   docker compose down && docker compose up -d --build && docker exec -it laravel13-setup-web-1 bash && composer install

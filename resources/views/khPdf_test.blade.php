@@ -8,17 +8,21 @@
     <style>
         p {
             font-size: 25px;
-            /* font-family: 'battambang';
-            font-weight: bold; */
 
             font-family: 'kantumruy_pro';
+        }
+
+        h1 {
+            font-family: 'khmeros_muollight';
         }
     </style>
 </head>
 
 <body>
     <p>សួស្តី ពិភពលោក ! Hello World</p>
-    <p><b>សួស្តី ពិភពលោក ! Hello World (Bold)</b></p>
+    <span><b>
+            <h1>សួស្តី ពិភពលោក ! Hello World (Bold)</h1>
+        </b></span>
 </body>
 
 </html>
