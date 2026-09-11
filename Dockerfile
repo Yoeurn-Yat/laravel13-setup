@@ -20,5 +20,6 @@ COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod +x /var/www/html/start.sh /var/www/html/deploy.sh 2>/dev/null || true
 
 EXPOSE 80

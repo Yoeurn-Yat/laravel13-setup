@@ -1,3 +1,3 @@
 @echo off
-echo Running Laravel deployment in Docker...
-docker compose exec web bash deploy.sh %*
+set COMPOSE_BAKE=true
+docker compose up --build --force-recreate -d

@@ -6,6 +6,7 @@ services:
     image: my-laravel13-app
     env_file:
       - .env
+    entrypoint: ["/bin/bash", "/var/www/html/start.sh"]
     ports:
       - "${APP_PORT:-8888}:80"
     volumes:
